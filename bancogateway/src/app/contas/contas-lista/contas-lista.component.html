@@ -1,0 +1,58 @@
+<h1 class="mt-4">Contas</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-warning" (click)="novoCadastro()">
+        <i class="fa fa-user-plus"></i> Nova Conta
+      </button>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="sacar()">
+        <i class="fa fa-credit-card"></i> Sacar
+      </button>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-info" (click)="depositar()">
+        <i class="fa fa-cube"></i> Depositar
+      </button>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-secondary" (click)="transferir()">
+        <i class="fa fa-paper-plane"></i> Transferir
+      </button>
+    </div>
+
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Titular</th>
+            <th>Número</th>
+            <th>CPF</th>
+            <th>Saldo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let conta of contas">
+            <td>{{conta.titular}}</td>
+            <td>{{conta.numero}}</td>
+            <td>{{conta.cpf}}</td>
+            <td>{{conta.saldo}}</td>
+            <td></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

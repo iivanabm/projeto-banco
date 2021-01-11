@@ -1,0 +1,49 @@
+<h1 class="mt-4">Contas</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Depositar</li>
+</ol>
+<div class="container">
+  <form #contaForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-primary" role="alert" *ngIf="success == true">
+          Deposito realizado.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+          {{error.message}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Número da Conta: *</label>
+          <input type="text" class="form-control" [(ngModel)]="conta.numero" name="numero" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Valor: *</label>
+          <input type="text" class="form-control" [(ngModel)]="valor" name="titular" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="button" class="btn btn-danger ml-1" (click)="voltarParaLista()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

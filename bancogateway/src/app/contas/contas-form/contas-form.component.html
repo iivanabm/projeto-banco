@@ -1,0 +1,68 @@
+<h1 class="mt-4">Contas</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+<div class="container">
+  <form #contaForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-primary" role="alert" *ngIf="success == true">
+          Conta cadastrada com sucesso.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+          {{error.message}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="conta.numero">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Número da Conta:</label>
+          <input type="text" class="form-control" [ngModel]="conta.numero" name="numero" disabled=true />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Titular: *</label>
+          <input type="text" class="form-control" [(ngModel)]="conta.titular" name="titular" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>CPF: *</label>
+          <input type="text" class="form-control" [(ngModel)]="conta.cpf" name="cpf" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Saldo: *</label>
+          <input type="text" class="form-control" [(ngModel)]="conta.saldo" name="saldo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success" *ngIf="!conta.numero">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="button" class="btn btn-danger ml-1" (click)="voltarParaLista()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
